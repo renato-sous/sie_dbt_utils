@@ -1,0 +1,16 @@
+name: 'sie_dbt_utils'
+version: '0.0.2'
+
+config-version: 2
+
+require-dbt-version: ">=1.0.0"
+
+model-paths: ["models"]
+target-path: "target"
+clean-targets: ["target", "dbt_modules"]
+test-paths: ["test"]
+macro-paths: ["macros"]
+log-path: "logs"
+
+
+on-run-start: "{{ sie_dbt_utils.neat_log('Package `sie_dbt_utils` loaded', 'sie_dbt_utils_230301') if not execute }}"
